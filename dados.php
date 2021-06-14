@@ -1,8 +1,6 @@
 <?php
-    require 'cadpessoa.php';
-    $dados = Handler::arrayHandler();
-    $arquivo = fopen('./pessoa.txt', 'w');
-    fwrite($arquivo, print_r($dados, true));
+    $pessoa = file_get_contents('./pessoa.txt');
+    $array = array_filter(explode("\n", $pessoa));
 ?>
 
 <!DOCTYPE html>
@@ -62,17 +60,29 @@
                     <h4 class="my-0 fw-normal"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-file-earmark-richtext" viewBox="0 0 16 16">
                 <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
                 <path d="M4.5 12.5A.5.5 0 0 1 5 12h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm1.639-3.708 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V8.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V8s1.54-1.274 1.639-1.208zM6.25 6a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/>
-                </svg><b>Confirmação de Cadastro</b></h4>
+                </svg><b>Dados das Pessoas</b></h4>
                 </div>
             <div class="card-body">
-                <?php
-                    echo "<b>Nome: </b>".$dados['nome']."<br/>";
-                    echo "<b>Data de Nascimento: </b>".$dados['datanascimento']."<br/>";
-                    echo "<b>Celular: </b>".$dados['celular']."<br/>";
-                    echo "<b>Sexo: </b>".$dados['sexo']."<br/>";
-                ?>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">Sexo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><?php echo $array[2]; ?></th>
+                        <td><?php echo $array[3]; ?></td>
+                        <td><?php echo $array[4]; ?></td>
+                        <td><?php echo $array[5]; ?></td>
+                    </tr>
+                </tbody>
+            </table>
                 <br/><br/>
-                <a href="cadastro.php"><button class="btn btn-secondary">Voltar</button></a>
+                <a href="index.php"><button class="btn btn-secondary">Voltar</button></a>
             </div>
         </div>
       </div>

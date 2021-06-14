@@ -34,7 +34,7 @@
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 <a class="nav-link" href="cadastro.php">Cadastro</a>
-                <a class="nav-link" href="#">Dados</a>
+                <a class="nav-link" href="dados.php">Dados</a>
                 <a class="nav-link" href="#">Sobre</a>
             </div>
         </div>

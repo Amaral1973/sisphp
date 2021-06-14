@@ -1,0 +1,7 @@
+Array
+(
+    [nome] => Teste8
+    [datanascimento] => 08/06/2021
+    [celular] => 88888888
+    [sexo] => Outro
+)
