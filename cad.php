@@ -1,3 +1,8 @@
+<?php
+    require 'cadpessoa.php';
+    $dados = Handler::arrayHandler();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -59,8 +64,13 @@
                 </div>
             <div class="card-body">
                 <?php
-                    include 'cadpessoa.php';
+                    echo "<b>Nome: </b>".$dados['nome']."<br/>";
+                    echo "<b>Data de Nascimento: </b>".$dados['datanascimento']."<br/>";
+                    echo "<b>Celular: </b>".$dados['celular']."<br/>";
+                    echo "<b>Sexo: </b>".$dados['sexo']."<br/>";
                 ?>
+                <br/><br/>
+                <a href="cadastro.php"><button class="btn btn-secondary">Voltar</button></a>
             </div>
         </div>
       </div>

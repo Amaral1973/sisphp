@@ -44,7 +44,7 @@
         <div class="container-fluid">
       <br>
       <center>
-      <h1><p class="text-white">SisPHP - Baseado em Arrays</p></h1>
+      <h1><p class="text-white">SisPHP - Cadastro de Pessoa</p></h1>
       </center>
       <br>
       <section>
