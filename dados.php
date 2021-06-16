@@ -1,6 +1,10 @@
 <?php
-    $pessoa = file_get_contents('./pessoa.txt');
-    $array = array_filter(explode("\n", $pessoa));
+    $arquivo = fopen("pessoa.txt", "r");
+    while(!feof($arquivo))
+    {
+        $pessoa = explode("|", fgets($arquivo));
+    }
+    fclose($arquivo);
 ?>
 
 <!DOCTYPE html>
@@ -74,11 +78,21 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row"><?php echo $array[2]; ?></th>
-                        <td><?php echo $array[3]; ?></td>
-                        <td><?php echo $array[4]; ?></td>
-                        <td><?php echo $array[5]; ?></td>
-                    </tr>
+                        <?php
+                            $numero = count($pessoa);
+                            $i = 0;
+                            while($i <= $numero)
+                            {
+                        ?>
+                        <th scope="row"><?php echo $pessoa[$i]; ?></th>
+                        <td><?php echo $pessoa[$i]; ?></td>
+                        <td><?php echo $pessoa[$i]; ?></td>
+                        <td><?php echo $pessoa[$i]; ?></td>
+                        <?php
+                            $i++;
+                            echo "</tr>";
+                            }
+                        ?>
                 </tbody>
             </table>
                 <br/><br/>

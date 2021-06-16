@@ -1,7 +1,1 @@
-Array
-(
-    [nome] => Teste8
-    [datanascimento] => 08/06/2021
-    [celular] => 88888888
-    [sexo] => Outro
-)
+Teste|01/06/2021|11111111|Masculino|Teste2|02/06/2021|22222222|Feminino|Teste3|03/06/2021|33333333|Outro|

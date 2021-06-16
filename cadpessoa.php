@@ -11,8 +11,10 @@
             $a['celular'] = $_POST['celular'];
             $a['sexo'] = $_POST['sexo'];
 
-            // print_r($a);
-            // die();
+            $gravar = $_POST['nome']."|".$databr."|".$_POST['celular']."|".$_POST['sexo']."|";
+            $arquivo = fopen('pessoa.txt', 'a+');
+            fwrite($arquivo, $gravar);
+            fclose($arquivo);
 
             return $a;
         }

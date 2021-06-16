@@ -1,8 +1,6 @@
 <?php
     require 'cadpessoa.php';
     $dados = Handler::arrayHandler();
-    $arquivo = fopen('./pessoa.txt', 'w');
-    fwrite($arquivo, print_r($dados, true));
 ?>
 
 <!DOCTYPE html>
