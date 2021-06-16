@@ -81,15 +81,15 @@
                         <?php
                             $numero = count($pessoa);
                             $i = 0;
-                            while($i <= $numero)
+                            while($i <= $numero - 4)
                             {
                         ?>
                         <th scope="row"><?php echo $pessoa[$i]; ?></th>
-                        <td><?php echo $pessoa[$i]; ?></td>
-                        <td><?php echo $pessoa[$i]; ?></td>
-                        <td><?php echo $pessoa[$i]; ?></td>
+                        <td><?php echo $pessoa[$i+2]; ?></td>
+                        <td><?php echo $pessoa[$i+1]; ?></td>
+                        <td><?php echo $pessoa[$i+3]; ?></td>
                         <?php
-                            $i++;
+                            $i = $i + 4;
                             echo "</tr>";
                             }
                         ?>
