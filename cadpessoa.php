@@ -4,7 +4,9 @@
         public static function arrayHandler()
         {
             $data = $_POST['datanascimento'];
+            //2021-06-21
             $databr = implode("/",array_reverse(explode("-", $data)));
+            //21/06/2021
             $a = [];
             $a['nome'] = $_POST['nome'];
             $a['datanascimento'] = $databr;

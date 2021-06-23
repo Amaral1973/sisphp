@@ -1,12 +1,14 @@
 <?php
+    $posicao = $_GET['posicao'];
     $arquivo = fopen("pessoa.txt", "r");
     while(!feof($arquivo))
     {
         $pessoa = explode("|", fgets($arquivo));
     }
     fclose($arquivo);
+    $data = $pessoa[$posicao+1];
+    $databr = implode("-",array_reverse(explode("/",$data)));
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -53,7 +55,7 @@
         <div class="container-fluid">
       <br>
       <center>
-      <h1><p class="text-white">SisPHP - Baseado em Arrays</p></h1>
+      <h1><p class="text-white">SisPHP - Cadastro de Pessoa</p></h1>
       </center>
       <br>
       <section>
@@ -64,41 +66,31 @@
                     <h4 class="my-0 fw-normal"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-file-earmark-richtext" viewBox="0 0 16 16">
                 <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
                 <path d="M4.5 12.5A.5.5 0 0 1 5 12h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm1.639-3.708 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V8.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V8s1.54-1.274 1.639-1.208zM6.25 6a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/>
-                </svg><b>Dados das Pessoas</b></h4>
+                </svg><b>Edição da Pessoa</b></h4>
                 </div>
             <div class="card-body">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Celular</th>
-                        <th scope="col">Data de Nascimento</th>
-                        <th scope="col">Sexo</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <?php
-                            $numero = count($pessoa);
-                            $i = 0;
-                            while($i <= $numero-4)
-                            {
-                        ?>
-                        <th scope="row"><?php echo $pessoa[$i]; ?></th>
-                        <td><?php echo $pessoa[$i+2]; ?></td>
-                        <td><?php echo $pessoa[$i+1]; ?></td>
-                        <td><?php echo $pessoa[$i+3]; ?></td>
-                        <td><a href="editar.php?posicao=<?php echo $i; ?>" class="btn btn-primary">Editar</a>  <a href="exclui.php?posicao=<?php echo $i; ?>" class="btn btn-danger">Excluir</a></td>
-                        <?php
-                            $i = $i + 4;
-                            echo "</tr>";
-                            }
-                        ?>
-                </tbody>
-            </table>
-                <br/><br/>
-                <a href="index.php"><button class="btn btn-secondary">Voltar</button></a>
+                <form action="edita.php?posicao=<?php echo $posicao; ?>" method="POST">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" name="nome" value="<?php echo $pessoa[$posicao]; ?>" required/>
+                        <br/>
+                        <label>Data de Nascimento</label>
+                        <input type="date" class="form-control" name="datanascimento" value="<?php echo $databr; ?>" required/>
+                        <br/>
+                        <label>Celular</label>
+                        <input type="number" class="form-control" name="celular" value="<?php echo $pessoa[$posicao+2]; ?>" required/>
+                        <br/>
+                        <label>Sexo</label>
+                        <select class="custom-select" name="sexo">
+                            <option selected>Escolha...</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                        <br/><br/>
+                        <button type="submit" class="btn btn-secondary">Atualizar</button>
+                    </div>
+                </form>
             </div>
         </div>
       </div>

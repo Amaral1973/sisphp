@@ -61,9 +61,9 @@
                 </svg></h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li><b>Dados Gerais</b></li>
-                    <li>Homens:</li>
-                    <li>Mulheres:</li>
-                    <li>Outro:</li>
+                    <li><?php
+                        include 'dager.php';
+                    ?></li>
                 </ul>
             </div>
         </div>
@@ -79,9 +79,9 @@
                 </svg></h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li><b>Aniversariantes do Mês</b></li>
-                    <li>Nome</li>
-                    <li>&nbsp;&nbsp;</li>
-                    <li>&nbsp;&nbsp;</li>
+                    <li><?php
+                        include 'niver.php';
+                    ?></li>
                 </ul>
             </div>
         </div>
